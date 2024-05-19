@@ -1,0 +1,42 @@
+collection:
+  get:
+    description: Get chats
+    tags:
+      - chats
+    responses:
+      200:
+        description: chats fetched
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  name: 
+                    type: string
+      500:
+        $ref: './errors.yaml#/500'
+  post:
+    description: Initialize chat
+    tags:
+      - Chats
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+    responses:
+      200:
+        description: Chat initialized
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name: 
+                  type: string
+      400:
+        $ref: './errors.yaml#/400'
+      500:
+        $ref: './errors.yaml#/500'
